@@ -1,20 +1,22 @@
 """
-这种工作模式的原理是 消息发送至 exchange，exchange 根据 路由键（routing_key）转发到相对应的 queue 上。
+direct模式工作模式的原理是 消息发送至 exchange，exchange 根据 路由键（routing_key）转发到相对应的 queue 上。
 
-可以使用默认 exchange =' ' ，也可以自定义 exchange
+可以使用默认 exchange ='' ，也可以自定义 exchange
 这种模式下不需要将 exchange 和 任何进行绑定，当然绑定也是可以的。可以将 exchange 和 queue ，routing_key 和 queue 进行绑定
 传递或接受消息时 需要 指定 routing_key
-需要先启动 订阅者，此模式下的队列是 consumer 随机生成的，发布者 仅仅发布消息到 exchange ，由 exchange 转发消息至 queue。
 
-这种模式和direct差不多，exchange 也是通过 路由键 routing_key 来转发消息到指定的 queue 。 不同点是 routing_key 使用正则表达式支持模糊匹配，但匹配规则又与常规的正则表达式不同，比如“#”是匹配全部，“*”是匹配一个词。
+需要先启动订阅者，此模式下的队列是 consumer 随机生成的，发布者仅仅发布消息到 exchange ，由 exchange 转发消息至 queue。
 
-举例：routing_key =“#orderid#”，意思是将消息转发至所有 routing_key 包含 “orderid” 字符的队列中。代码和模式二 类似，就不贴出来了。
+topic模式和direct模式差不多，exchange 也是通过 路由键 routing_key 来转发消息到指定的 queue 。
+不同点是 routing_key 使用正则表达式支持模糊匹配，但匹配规则又与常规的正则表达式不同，比如“#”是匹配全部，“*”是匹配一个词。
+
+举例：routing_key =“#orderid#”，意思是将消息转发至所有 routing_key 包含 “orderid” 字符的队列中。
 
 """
 
-import pika
 import json
 
+import pika
 
 if __name__ == '__main__':
 

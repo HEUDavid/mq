@@ -1,6 +1,5 @@
-import pika
 """
-这种模式下，传递到 exchange 的消息将会转发到所有与其绑定的 queue 上。
+fanout模式下，传递到 exchange 的消息将会转发到所有与其绑定的 queue 上。
 
 不需要指定 routing_key ，即使指定了也是无效。
 需要提前将 exchange 和 queue 绑定，一个 exchange 可以绑定多个 queue，一个queue可以绑定多个exchange。
@@ -9,8 +8,9 @@ import pika
 
 """
 
-mport json
+import json
 
+import pika
 
 if __name__ == '__main__':
 

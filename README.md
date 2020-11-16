@@ -70,8 +70,11 @@ prefetch_count配置：当worker未处理结束，不在推送。
 
 ![比较](source/比较.jpg "比较")
 
+### 8、rabbitmq的消息分发的三种工作模式
 
-### 8、rabbitmq的三种工作模式
+![分发](source/exchange.png "分发")
+
+见rabbit_project代码
 
 - direct
 - fanout

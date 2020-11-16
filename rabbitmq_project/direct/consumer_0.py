@@ -1,8 +1,6 @@
 import pika
 
-
 if __name__ == '__main__':
-
     credentials = pika.PlainCredentials('test', '123456')
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host='api.mdavid.cn', port=5672, virtual_host='xiang_test', credentials=credentials))
