@@ -1,5 +1,6 @@
-import pika
 import time
+
+import pika
 
 if __name__ == '__main__':
     credentials = pika.PlainCredentials('test', '123456')
